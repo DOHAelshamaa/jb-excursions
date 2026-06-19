@@ -73,13 +73,13 @@ export default function Footer() {
             </a>
             <a
               href={BUSINESS.tiktok}
-  target="_blank"
-  rel="noopener noreferrer"
-  className={styles.socialBtn}
-  aria-label="TikTok"
->
-  <TikTokIcon />
-              <InstagramIcon />
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialBtn}
+              aria-label="TikTok"
+             >
+              <TikTokIcon />
+            
             </a>
             <a
               href={BUSINESS.phoneHref}
