@@ -4,6 +4,7 @@
   overflow: hidden;
   background: var(--color-navy);
   height: 520px;
+  min-height: 520px;
   flex: 1 1 300px;
   min-width: 0;
   transition: transform var(--transition-slow), box-shadow var(--transition-slow);
@@ -110,5 +111,9 @@
 }
 .viewDetails:hover { color: var(--color-cyan); border-color: var(--color-cyan); }
 
-@media (max-width: 900px) { .card { height: 460px; } }
-@media (max-width: 600px) { .card { height: 400px; flex: 1 1 100%; } }
+@media (max-width: 900px) {
+  .card { height: 460px; min-height: 460px; }
+}
+@media (max-width: 600px) {
+  .card { height: 400px; min-height: 400px; flex: 1 1 100%; }
+}
