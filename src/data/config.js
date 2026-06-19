@@ -33,7 +33,9 @@ export const BUSINESS = {
   location: 'In front of Winter Palace Hotel, Luxor, Egypt',
   instagram: 'https://www.instagram.com/bobo.bahaa.963?igsh=OTZnaWNlYzRocHE=',
   instagramHandle: '@bobo.bahaa.963',
+  tiktok: 'https://www.tiktok.com/@bobinko7?_r=1&_t=ZS-97LZEuGFHsn',
 };
+
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
 export const NAV_LINKS = [
@@ -60,7 +62,7 @@ export const EXPERIENCES = [
     id: 'boat-tours',
     title: 'Boat Tours',
     description: 'Island hopping, Private charters, and Luxury day cruises.',
-    images: [boatTours, boatTours1, boatTours2],
+    images: [boatTours, boatTours1, boatTours2, boatTours3, boatTours4, boatTours5],
   },
   {
     id: 'balloon-rides',
@@ -72,7 +74,7 @@ export const EXPERIENCES = [
     id: 'sunset-magic',
     title: 'Sunset Magic',
     description: 'Golden hour cruises, special events, and romantic dinners at sea.',
-    images: [sunsetMagic, sunsetMagic1, sunsetMagic2],
+    images: [sunsetMagic, sunsetMagic1, sunsetMagic2, sunsetMagic3],
   },
 ];
 
@@ -84,6 +86,11 @@ export const GALLERY_IMAGES = [
   { src: photo8,       alt: 'Group photo on J&B Excursions boat',              span: 'normal' },
   { src: gallery1,     alt: 'Guests enjoying a private charter',               span: 'tall'   },
   { src: sunsetMagic3, alt: 'Magical sunset over the Nile',                   span: 'normal' },
+  { src: photo7,       alt: 'Guests aboard during golden hour on the Nile',    span: 'normal' },
+  { src: photo11,      alt: 'Scenic moment from a J&B Excursions tour',        span: 'normal' },
+  { src: photo13,      alt: 'Travelers enjoying the river breeze',             span: 'normal' },
+  { src: photo14,      alt: 'Candid moment aboard a J&B boat',                 span: 'normal' },
+  { src: photo18,      alt: 'Guests admiring the Nile views',                  span: 'normal' },
 ];
 
 // ─── About ────────────────────────────────────────────────────────────────────
