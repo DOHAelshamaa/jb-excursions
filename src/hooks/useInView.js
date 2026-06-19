@@ -7,16 +7,19 @@ import { useEffect, useRef, useState } from 'react';
  * Mobile-hardened:
  * - Lower default threshold (mobile viewports are short; tall cards may never
  *   hit a high intersection ratio).
- * - rootMargin pre-triggers slightly before the element is fully on-screen,
- *   so content doesn't stay invisible until scrolled awkwardly far.
- * - Checks getBoundingClientRect() synchronously on mount in case the element
- *   is already in the viewport when it mounts (e.g. above-the-fold on load,
- *   or content injected after a route change) — some mobile browsers delay
- *   or skip the first IntersectionObserver callback in that situation.
+ * - Positive bottom rootMargin extends the trigger zone past the viewport
+ *   edge, so stacked mobile cards flip to visible before they're fully
+ *   scrolled into view, instead of needing an exact intersection.
  * - Falls back to visible=true if IntersectionObserver isn't supported.
+ * - A 1.5s safety-net timeout guarantees content is never left permanently
+ *   invisible if the observer is delayed or skipped by a particular browser.
  */
 export function useInView(options = {}) {
-  const { threshold = 0.05, rootMargin = '0px 0px -10% 0px' } = options;
+  // Positive bottom rootMargin means the trigger zone extends *past* the
+  // bottom of the viewport, so elements lower on the page (e.g. stacked
+  // mobile cards) flip to visible slightly before they're fully scrolled
+  // into view, instead of requiring an exact, easily-missed intersection.
+  const { threshold = 0.05, rootMargin = '0px 0px 100px 0px' } = options;
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -26,15 +29,6 @@ export function useInView(options = {}) {
 
     // No IntersectionObserver support — just show the content.
     if (typeof IntersectionObserver === 'undefined') {
-      setInView(true);
-      return;
-    }
-
-    // If the element is already in (or near) the viewport on mount,
-    // mark it visible immediately instead of waiting on the observer.
-    const rect = el.getBoundingClientRect();
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < viewportHeight && rect.bottom > 0) {
       setInView(true);
       return;
     }
@@ -50,7 +44,16 @@ export function useInView(options = {}) {
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Safety net: if for any reason the observer never fires (layout
+    // shifts, browser quirks, etc.), don't leave content permanently
+    // hidden — reveal it after a short delay regardless.
+    const fallback = setTimeout(() => setInView(true), 1500);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
   }, [threshold, rootMargin]);
 
   return [ref, inView];
