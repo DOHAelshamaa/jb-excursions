@@ -1,0 +1,19 @@
+.stars { display: flex; gap: 6px; }
+
+.star {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: rgba(34, 211, 238, 0.35);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  padding: 0;
+  line-height: 1;
+}
+
+.star.filled { color: var(--color-cyan); }
+
+.stars button:hover { transform: scale(1.2); color: var(--color-cyan); }
+
+/* sizes */
+.sm .star { font-size: 16px; }
+.lg .star { font-size: 28px; }

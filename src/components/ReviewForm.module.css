@@ -1,0 +1,91 @@
+.form {
+  background: #111827;
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 320px;
+  max-width: 420px;
+  width: 100%;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  font-style: italic;
+}
+
+.starsRow {
+  display: flex;
+  justify-content: center;
+}
+
+.field { display: flex; flex-direction: column; gap: 8px; }
+
+.label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+
+.input, .textarea {
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  font-family: var(--font-base);
+  transition: border-color var(--transition-base);
+  outline: none;
+  resize: none;
+}
+.input::placeholder, .textarea::placeholder { color: rgba(255,255,255,0.35); font-style: italic; }
+.input:focus, .textarea:focus { border-color: var(--color-blue-light); }
+
+.error {
+  font-size: 13px;
+  color: #f87171;
+  text-align: center;
+}
+
+/* Success */
+.successBox {
+  background: #111827;
+  border-radius: var(--radius-xl);
+  padding: 48px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 320px;
+  max-width: 420px;
+}
+.successIcon {
+  font-size: 40px;
+  color: #22c55e;
+  background: rgba(34,197,94,0.15);
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  margin-bottom: 8px;
+}
+.successTitle { font-size: 18px; font-weight: 700; color: white; }
+.successSub   { font-size: 14px; color: rgba(255,255,255,0.6); }
+.resetBtn {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--color-blue-light);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font-base);
+}

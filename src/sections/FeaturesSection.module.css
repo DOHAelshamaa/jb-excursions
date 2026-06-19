@@ -1,0 +1,13 @@
+.section {
+  background: var(--color-light-grey);
+  padding: var(--section-padding);
+}
+.inner { max-width: var(--max-width); margin: 0 auto; }
+.grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .grid { flex-direction: column; }
+}

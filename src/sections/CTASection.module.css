@@ -1,0 +1,38 @@
+.section {
+  background: linear-gradient(135deg, #0d1b6e 0%, #1a4fd6 50%, #1565c0 100%);
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle wave texture overlay */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 120% 80% at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.heading {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.sub {
+  font-size: clamp(14px, 2vw, 17px);
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 40px;
+  line-height: 1.65;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
